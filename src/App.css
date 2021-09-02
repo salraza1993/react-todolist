@@ -91,7 +91,9 @@ li:hover span {
 }
 .deleteButton {
   width: 35px;
+  min-width: 35px;
   height: 35px;
+  margin-left: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,10 +102,11 @@ li:hover span {
   top: 0;
   /* background-color: #e6e6e6; */
   cursor: pointer;
-  transition: all 0.3s ease
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
-.deleteButton:hover { background-color: red; }
-.deleteButton:hover svg { stroke: white; }
+.deleteButton:hover { background-color: white; color: red; }
+.deleteButton:hover svg { stroke: red; }
 
 .inputContainer {
   margin: 0 auto 20px;
@@ -122,4 +125,86 @@ li:hover span {
   width: 100px;
   height: 35px;
   cursor: pointer;
+}
+
+
+
+.todoSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  display: flex;
+  padding: 5rem;
+  justify-content: center;
+}
+.todoSubContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+.todoSubContainer h1 {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.inputBlock {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.inputBlock input {
+  width: 100%;
+  padding: 0 015px;
+  height: 50px;
+  font-size: 18px;
+}
+.inputBlock button {
+  position: absolute;
+  white-space: nowrap;
+  padding: 0 15px;
+  height: 35px;
+  right: 7.5px;
+  top: 7.5px;
+  font-size: 16px;
+  line-height: 16px;
+  border: 0;
+  transition: all 0.2s ease;
+  border-radius: 5px;
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+}
+.inputBlock button:hover {background-color: navy;}
+.inputBlock input:focus, .inputBlock button:focus {outline: none;}
+
+.todoListItems {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+.todoListItems .todoItem {
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 10px 10px 16px;
+  min-height: 55px;
+  color: white;
+  background-color: #520096;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+}
+.todoListItems .todoItem p { 
+  font-size: 15px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
 }

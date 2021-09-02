@@ -89,24 +89,6 @@ li:hover span {
   font-weight: 700;
   max-width: 40px;
 }
-.deleteButton {
-  width: 35px;
-  min-width: 35px;
-  height: 35px;
-  margin-left: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-  position: relative;
-  top: 0;
-  /* background-color: #e6e6e6; */
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-.deleteButton:hover { background-color: white; color: red; }
-.deleteButton:hover svg { stroke: red; }
 
 .inputContainer {
   margin: 0 auto 20px;
@@ -137,6 +119,8 @@ li:hover span {
   display: flex;
   padding: 5rem;
   justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1448067686092-1f4f2070baae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
 }
 .todoSubContainer {
   position: relative;
@@ -158,12 +142,14 @@ li:hover span {
   height: 50px;
   border-radius: 6px;
   overflow: hidden;
+  background-color: #fff;
 }
 .inputBlock input {
   width: 100%;
   padding: 0 015px;
   height: 50px;
   font-size: 18px;
+  border: 0;
 }
 .inputBlock button {
   position: absolute;
@@ -177,12 +163,14 @@ li:hover span {
   border: 0;
   transition: all 0.2s ease;
   border-radius: 5px;
-  background-color: #111;
+  background-color: #520096;
   color: white;
   cursor: pointer;
 }
-.inputBlock button:hover {background-color: navy;}
-.inputBlock input:focus, .inputBlock button:focus {outline: none;}
+.inputBlock button:hover {background-color: #520096;}
+input:focus, button:focus {outline: none;}
+.inputBlock input.active {background-color: red;}
+.inputBlock input.active::placeholder {color: black;}
 
 .todoListItems {
   position: relative;
@@ -201,6 +189,7 @@ li:hover span {
   display: flex;
   justify-content: space-between;
   border: 0;
+  transition: all 0.3s ease-in;
 }
 .todoListItems .todoItem p { 
   font-size: 15px;
@@ -208,3 +197,46 @@ li:hover span {
   display: flex;
   align-items: center;
 }
+.todoListItems .todoItem input {
+  width: 100%;
+  border: 0;
+}
+.todoListItems .todoItem:hover,
+.todoListItems .todoItem.active {
+  background-color: #fff;
+  color: black
+}
+.todoListItems .todoItem:hover .deleteButton,
+.todoListItems .todoItem:hover .cancelButton,
+.todoListItems .todoItem.active .cancelButton {color: red;}
+.todoListItems .todoItem:hover .deleteButton:hover,
+.todoListItems .todoItem:hover .cancelButton:hover {background-color: red; color: white;}
+.todoListItems .todoItem:hover .editButton {color: black;}
+.todoListItems .todoItem:hover .editButton:hover {background-color: black; color: white;}
+.todoListItems .todoItem:hover .checkButton,
+.todoListItems .todoItem.active .checkButton {color: green;}
+.todoListItems .todoItem:hover .checkButton:hover {background-color: green; color: white;}
+
+
+.deleteButton, 
+.editButton, 
+.checkButton, 
+.cancelButton {
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+.deleteButton:hover,
+.cancelButton:hover { background-color: white; color: red; }
+.editButton:hover { background-color: white; color: red; }
+.checkButton:hover { background-color: white; color: green; }
